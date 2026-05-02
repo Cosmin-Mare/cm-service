@@ -83,6 +83,85 @@
         "CM Service — reparații PC și laptop în Dej, Cluj: " + window.location.href
       );
   }
+  var contactForm = document.getElementById("contactForm");
+  var contactFormStatus = document.getElementById("contactFormStatus");
+  var contactFormSubmit = document.getElementById("contactFormSubmit");
+
+  if (contactForm && contactFormStatus) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var hp = contactForm.querySelector('input[name="botcheck"]');
+      if (hp && hp.checked) return;
+
+      var fd = new FormData(contactForm);
+      var accessKey = fd.get("access_key");
+      var name = String(fd.get("name") || "").trim();
+      var email = String(fd.get("email") || "").trim();
+      var message = String(fd.get("message") || "").trim();
+      var phone = String(fd.get("phone") || "").trim();
+
+      if (!name || !email || !message) return;
+
+      var payload = {
+        access_key: accessKey,
+        subject: "CM Service — mesaj de pe site",
+        name: name,
+        email: email,
+        message: message,
+      };
+      if (phone) payload.phone = phone;
+
+      if (contactFormSubmit) {
+        contactFormSubmit.disabled = true;
+      }
+      contactFormStatus.hidden = false;
+      contactFormStatus.removeAttribute("data-state");
+      contactFormStatus.classList.add("is-busy");
+      contactFormStatus.textContent = "Se trimite…";
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          return res.json().then(function (data) {
+            return { ok: res.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data && result.data.success) {
+            contactFormStatus.classList.remove("is-busy");
+            contactFormStatus.setAttribute("data-state", "success");
+            contactFormStatus.textContent =
+              "Mulțumesc! Am primit mesajul. Îți răspund când pot, de regulă în aceeași zi lucrătoare.";
+            contactForm.reset();
+          } else {
+            var errMsg =
+              (result.data && (result.data.message || result.data.error)) ||
+              "Nu am putut trimite mesajul. Încearcă din nou sau scrie pe email.";
+            contactFormStatus.classList.remove("is-busy");
+            contactFormStatus.setAttribute("data-state", "error");
+            contactFormStatus.textContent = errMsg;
+          }
+        })
+        .catch(function () {
+          contactFormStatus.classList.remove("is-busy");
+          contactFormStatus.setAttribute("data-state", "error");
+          contactFormStatus.textContent =
+            "Eroare de rețea. Verifică conexiunea sau contactează-mă direct la telefon sau email.";
+        })
+        .finally(function () {
+          if (contactFormSubmit) {
+            contactFormSubmit.disabled = false;
+          }
+        });
+    });
+  }
+
   if (copyBtn) {
     copyBtn.addEventListener("click", function () {
       var url = window.location.href;

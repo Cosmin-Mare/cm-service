@@ -501,8 +501,8 @@
         <div class="container">
           <h2 class="section-title">Contact</h2>
           <p class="contact-intro">
-            Spune-mi pe scurt ce nu merge și cum să te sun sau să îți scriu înapoi. Poți folosi emailul, telefonul sau
-            WhatsApp — ce îți e mai la îndemână.
+            Spune-mi pe scurt ce nu merge și cum să te sun sau să îți scriu înapoi. Poți folosi formularul, emailul,
+            telefonul sau WhatsApp — ce îți e mai la îndemână.
           </p>
           <p class="contact-pickup">
             <strong>Predare și ridicare:</strong> stabilim împreună la telefon sau pe mesaj (în Dej sau punct convenabil
@@ -511,18 +511,70 @@
           <div class="contact-grid">
             <div class="contact-panel">
               <p class="contact-panel-lead">
-                Preferi în scris? Email sau WhatsApp merg bine. Răspund când pot, de regulă în aceeași zi lucrătoare.
+                Trimite un mesaj din formularul de mai jos — ajunge direct la mine. Răspund când pot, de regulă în aceeași
+                zi lucrătoare. Datele de contact sunt și în coloana din dreapta.
               </p>
-              <div class="contact-actions">
-                <a class="btn btn-primary btn-full" href="mailto:contact@cmservice.ro?subject=CM%20Service%20-%20întrebare">Scrie pe email</a>
-                <a class="btn btn-secondary btn-full" href="tel:+40760051313">Sună</a>
-                <a
-                  class="btn btn-whatsapp btn-full"
-                  href="https://wa.me/40760051313?text=Bun%C4%83%2C%20am%20o%20%C3%AEntrebare%20de%20pe%20site-ul%20CM%20Service."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >WhatsApp</a>
-              </div>
+              <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                <input type="hidden" name="access_key" value="ce247b36-3664-45f6-8c38-0ea4a469ab83" />
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  class="contact-form-hp"
+                  tabindex="-1"
+                  autocomplete="off"
+                  aria-hidden="true"
+                />
+                <div class="contact-form-field">
+                  <label for="contactName">Nume</label>
+                  <input
+                    id="contactName"
+                    name="name"
+                    type="text"
+                    required
+                    maxlength="120"
+                    autocomplete="name"
+                    placeholder="Cum te numești"
+                  />
+                </div>
+                <div class="contact-form-field">
+                  <label for="contactEmail">Email</label>
+                  <input
+                    id="contactEmail"
+                    name="email"
+                    type="email"
+                    required
+                    maxlength="254"
+                    autocomplete="email"
+                    placeholder="adresa@email.com"
+                  />
+                </div>
+                <div class="contact-form-field">
+                  <label for="contactPhone">Telefon <span class="contact-form-optional">(opțional)</span></label>
+                  <input
+                    id="contactPhone"
+                    name="phone"
+                    type="tel"
+                    maxlength="40"
+                    autocomplete="tel"
+                    placeholder="+40 …"
+                  />
+                </div>
+                <div class="contact-form-field">
+                  <label for="contactMessage">Mesaj</label>
+                  <textarea
+                    id="contactMessage"
+                    name="message"
+                    required
+                    rows="5"
+                    maxlength="4000"
+                    placeholder="Descrie pe scurt problema sau întrebarea."
+                  ></textarea>
+                </div>
+                <p class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite" hidden></p>
+                <button type="submit" class="btn btn-primary btn-full" id="contactFormSubmit">
+                  Trimite mesajul
+                </button>
+              </form>
             </div>
             <div class="contact-info">
               <div class="contact-item">

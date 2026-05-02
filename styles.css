@@ -313,7 +313,7 @@ a:hover {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  max-width: 640px;
+  max-width: 900px;
 }
 
 @media (min-width: 520px) {
@@ -394,14 +394,14 @@ a:hover {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--amber-bright);
-  max-width: 640px;
+  max-width: 900px;
   text-align: center;
 }
 
 .hero-zones {
   font-size: 1rem;
   color: var(--text-muted);
-  max-width: 560px;
+  max-width: 880px;
   margin: -8px 0 20px;
   line-height: 1.55;
 }
@@ -416,14 +416,14 @@ a:hover {
   color: var(--text);
   font-weight: 600;
   line-height: 1.5;
-  max-width: 560px;
+  max-width: 880px;
   margin: 0 0 12px;
 }
 
 .hero-desc {
   font-size: 1.05rem;
   color: var(--text-muted);
-  max-width: 560px;
+  max-width: 880px;
   margin: 0 0 20px;
 }
 
@@ -432,7 +432,7 @@ a:hover {
   font-size: clamp(1.2rem, 2.6vw, 1.45rem);
   font-weight: 600;
   letter-spacing: 0.03em;
-  max-width: 560px;
+  max-width: 880px;
 }
 
 .hero-phone a {
@@ -451,7 +451,7 @@ a:hover {
 .hero-whatsapp {
   margin: 0 0 28px;
   font-size: 0.98rem;
-  max-width: 560px;
+  max-width: 880px;
 }
 
 .hero-whatsapp a {
@@ -966,10 +966,93 @@ main {
   line-height: 1.6;
 }
 
-.contact-actions {
+.contact-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.contact-form-field label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.contact-form-optional {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover {
+  border-color: color-mix(in srgb, var(--amber) 35%, var(--border-strong));
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--amber) 25%, transparent);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form-hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.contact-form-status {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contact-form-status[data-state="success"] {
+  color: #8fbc8f;
+}
+
+.contact-form-status[data-state="error"] {
+  color: #e8a090;
+}
+
+.contact-form-status.is-busy {
+  color: var(--text-muted);
 }
 
 .contact-hint {
@@ -1279,20 +1362,30 @@ a.footer-share-btn:focus-visible {
     font-size: clamp(3rem, 4.2vw, 3.85rem);
   }
 
+  .hero-pillars,
+  .hero-scope {
+    max-width: 58rem;
+  }
+
   .hero-subtitle {
     font-size: 1.35rem;
-    max-width: 38rem;
+    max-width: 58rem;
   }
 
   .hero-desc {
     font-size: 1.2rem;
-    max-width: 38rem;
+    max-width: 58rem;
     line-height: 1.65;
   }
 
   .hero-zones {
     font-size: 1.0625rem;
-    max-width: 38rem;
+    max-width: 58rem;
+  }
+
+  .hero-phone,
+  .hero-whatsapp {
+    max-width: 58rem;
   }
 
   .btn {
