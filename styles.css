@@ -946,11 +946,6 @@ main {
   max-width: 520px;
 }
 
-.reviews-note {
-  margin: 0;
-  line-height: 1.55;
-}
-
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
