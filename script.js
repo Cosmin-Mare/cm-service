@@ -41,6 +41,13 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") setNavOpen(false);
     });
+
+    document.addEventListener("click", function (e) {
+      if (!nav.classList.contains("open")) return;
+      var t = e.target;
+      if (nav.contains(t)) return;
+      setNavOpen(false);
+    });
   }
 
   if (serviciiGrid) {
