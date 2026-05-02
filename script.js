@@ -73,4 +73,45 @@
       }
     });
   }
+
+  var copyBtn = document.getElementById("copyPageLink");
+  var waShare = document.getElementById("whatsappShareLink");
+  if (waShare) {
+    waShare.href =
+      "https://wa.me/?text=" +
+      encodeURIComponent(
+        "CM Service — reparații PC și laptop în Dej, Cluj: " + window.location.href
+      );
+  }
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var url = window.location.href;
+      var prevLabel = copyBtn.textContent;
+      function done() {
+        copyBtn.textContent = "Link copiat!";
+        setTimeout(function () {
+          copyBtn.textContent = prevLabel;
+        }, 2200);
+      }
+      function fallbackCopy() {
+        var ta = document.createElement("textarea");
+        ta.value = url;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand("copy");
+          done();
+        } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+    });
+  }
 })();

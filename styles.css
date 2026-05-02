@@ -1147,10 +1147,17 @@ main {
 
 .footer-inner {
   display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer-row-top {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
+  gap: 1rem;
+  width: 100%;
 }
 
 .footer-brand {
@@ -1175,6 +1182,65 @@ main {
 .footer-copy {
   margin: 0;
   font-size: 0.875rem;
+}
+
+.footer-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+
+.footer-share-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  width: 100%;
+  margin-bottom: 0.15rem;
+}
+
+@media (min-width: 480px) {
+  .footer-share-label {
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 0.35rem;
+  }
+}
+
+.footer-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border-strong);
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.footer-share-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber-bright);
+}
+
+button.footer-share-btn:focus-visible,
+a.footer-share-btn:focus-visible {
+  outline: 2px solid var(--amber-bright);
+  outline-offset: 2px;
 }
 
 .site-footer a {
