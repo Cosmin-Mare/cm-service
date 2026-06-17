@@ -88,10 +88,16 @@
               "longitude": 23.881
             },
             "hasMap": "https://www.openstreetmap.org/?mlat=47.144&mlon=23.881#map=13/47.144/23.881",
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "description": "Cu programare; confirmăm disponibilitatea la telefon sau mesaj."
-            },
+            "sameAs": ["https://share.google/tjEWP1IVVVAz4ZmRv"],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "09:00",
+                "closes": "18:00",
+                "description": "Cu programare; confirmăm disponibilitatea la telefon sau mesaj."
+              }
+            ],
             "areaServed": [
               { "@type": "City", "name": "Dej", "containedInPlace": { "@type": "AdministrativeArea", "name": "Cluj" } },
               { "@type": "City", "name": "Gherla", "containedInPlace": { "@type": "AdministrativeArea", "name": "Cluj" } },
@@ -99,6 +105,36 @@
               { "@type": "AdministrativeArea", "name": "Județul Cluj" }
             ],
             "priceRange": "$$",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5",
+              "reviewCount": "3",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Catalin Sandu" },
+                "datePublished": "2026-06-10",
+                "reviewBody": "Am avut probleme cu temperatura procesorului, așa că am apelat la Cosmin și a schimbat pasta termoconductoare, aplicând-o cum trebuie folosind cantitatea necesară de pastă, nici prea multă nici prea puțină. Foarte mulțumit de servicii, din partea casei mi-a oferit o curățare a mufelor de la placa de bază.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Cosmina Muresan" },
+                "datePublished": "2026-06-10",
+                "reviewBody": "Recomand cu încredere pentru orice instalări. Windows, Office, imprimante, etc. M-a ajutat pentru firmă și a lucrat perfect, profesionist și un preț foarte bun.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+              },
+              {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Simone Marton" },
+                "datePublished": "2026-05-17",
+                "reviewBody": "Am avut o problemă cu PC-ul și am apelat la CM Service Dej. Cosmin a fost foarte profesionist, mi-a explicat clar care este problema și ce soluții există, fără să încerce să mă taxeze inutil. M-a bucurat faptul că evaluarea/diagnoza a fost gratuită, iar prețurile pentru reparație au fost chiar accesibile. Serviciul a fost rapid și corect, iar calculatorul merge perfect acum. Recomand cu încredere pentru oricine are nevoie de un service PC serios în Dej.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+              }
+            ],
             "knowsAbout": [
               "reparații laptop",
               "service PC",
@@ -131,83 +167,82 @@
   <body>
     <a class="skip-link" href="#main">Sari la conținut</a>
 
-    <nav class="nav" id="nav" aria-label="Navigare principală">
-      <div class="nav-inner">
-        <a href="#hero" class="nav-logo" aria-label="CM Service, începutul paginii">
-          <img
-            class="nav-logo-img"
-            src="Logo Transparent Dark Brown BG.svg"
-            width="40"
-            height="40"
-            alt="Logo CM Service"
-          />
-        </a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Meniu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#despre" data-nav="despre">Despre</a></li>
-          <li><a href="#servicii" data-nav="servicii">Servicii</a></li>
-          <li><a href="#cum-lucram" data-nav="cum-lucram">Cum lucrăm</a></li>
-          <li><a href="#recenzii" data-nav="recenzii">Recenzii</a></li>
-          <li><a href="#contact" class="nav-cta" data-nav="contact">Contact</a></li>
-        </ul>
+    <header class="site-header" id="siteHeader">
+      <div class="nav-promo" id="navPromo" hidden aria-label="Ofertă promotională">
+        <div class="nav-promo-inner">
+          <p class="nav-promo-offer">
+            <span class="nav-promo-percent" aria-hidden="true">-50%</span>
+            <span class="nav-promo-offer-text">Reducere la manoperă · până pe 28 iunie</span>
+            <span class="nav-promo-offer-short">la manoperă</span>
+            <span class="nav-promo-compact" id="promoCountCompact" hidden></span>
+          </p>
+          <div class="nav-promo-countdown promo-countdown" id="promoCountdown" hidden>
+            <span class="promo-countdown-label">Se termină în</span>
+            <div class="promo-countdown-grid" id="promoCountdownTimer" role="timer" aria-live="polite">
+              <div class="promo-countdown-cell">
+                <span class="promo-countdown-num" id="promoCountDays">0</span>
+                <span class="promo-countdown-unit">zile</span>
+              </div>
+              <div class="promo-countdown-cell">
+                <span class="promo-countdown-num" id="promoCountHours">0</span>
+                <span class="promo-countdown-unit">ore</span>
+              </div>
+              <div class="promo-countdown-cell">
+                <span class="promo-countdown-num" id="promoCountMins">0</span>
+                <span class="promo-countdown-unit">min</span>
+              </div>
+              <div class="promo-countdown-cell">
+                <span class="promo-countdown-num" id="promoCountSecs">0</span>
+                <span class="promo-countdown-unit">sec</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </nav>
+      <nav class="nav" id="nav" aria-label="Navigare principală">
+        <div class="nav-inner">
+          <a href="#hero" class="nav-logo" aria-label="CM Service, începutul paginii">
+            <img
+              class="nav-logo-img"
+              src="Logo Transparent Dark Brown BG.svg"
+              width="40"
+              height="40"
+              alt="Logo CM Service"
+            />
+          </a>
+          <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Meniu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#despre" data-nav="despre">Despre</a></li>
+            <li><a href="#servicii" data-nav="servicii">Servicii</a></li>
+            <li><a href="#cum-lucram" data-nav="cum-lucram">Cum lucrăm</a></li>
+            <li><a href="#recenzii" data-nav="recenzii">Recenzii</a></li>
+            <li class="nav-links-cta"><a href="#contact" class="nav-cta" data-nav="contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
     <main id="main">
       <section class="hero" id="hero" aria-labelledby="hero-heading">
         <div class="container hero-content">
-          <p class="hero-tagline">Dej, România</p>
-          <h1 class="hero-title" id="hero-heading">CM Service — reparații PC și laptop în Dej, Cluj</h1>
-          <ul class="hero-pillars">
-            <li class="hero-pillar">
-              <a class="hero-pillar-link" href="#servicii">
-                <span class="hero-pillar-title">Reparații</span>
-                <span class="hero-pillar-desc">defecțiuni, piese, diagnostic</span>
-              </a>
-            </li>
-            <li class="hero-pillar">
-              <a class="hero-pillar-link" href="#servicii">
-                <span class="hero-pillar-title">Curățare</span>
-                <span class="hero-pillar-desc">praf, pastă termică, răcire</span>
-              </a>
-            </li>
-            <li class="hero-pillar">
-              <a class="hero-pillar-link" href="#servicii">
-                <span class="hero-pillar-title">Instalări</span>
-                <span class="hero-pillar-desc">Windows, drivere, programe</span>
-              </a>
-            </li>
-          </ul>
-          <p class="hero-scope">Service calculatoare: PC, laptop și consolă</p>
-          <p class="hero-zones">
-            Clienți din <strong>Dej</strong>, <strong>Gherla</strong>, <strong>Cluj-Napoca</strong> și împrejurimi — scrie-mi
-            dacă ești mai departe și vedem cum facem.
+          <p class="hero-tagline">Dej · județul Cluj</p>
+          <h1 class="hero-title" id="hero-heading">CM Service — reparații PC și laptop în Dej</h1>
+          <p class="hero-lead">
+            Îți spun direct ce merită reparat, cât costă și cât durează — fără jargon, fără presiune. PC, laptop și
+            consolă, în Dej și împrejurimi.
           </p>
-          <p class="hero-subtitle">
-            Totul explicat pe limba ta, fără presiune.
-          </p>
-          <p class="hero-desc">
-            Lucrez cu oameni din Dej și împrejurimi care vor să înțeleagă ce se întâmplă înăuntru la aparat:
-            laptop care se încălzește prea tare, PC care nu mai pornește, consolă cu erori.
-            Îți spun direct ce merită făcut, cât durează cam și ce poți lăsa pe mai târziu fără să riști.
-          </p>
-          <p class="hero-phone">
-            <a href="tel:+40760051313">+40 760 051 313</a>
-          </p>
-          <p class="hero-whatsapp">
-            <a
-              href="https://wa.me/40760051313?text=Bun%C4%83%2C%20am%20o%20%C3%AEntrebare%20de%20pe%20site-ul%20CM%20Service."
-              target="_blank"
-              rel="noopener noreferrer"
-              >Scrie pe WhatsApp</a>
-          </p>
+          <aside class="promo-hero" id="promoHero" hidden aria-label="Ofertă promotională">
+            <p class="promo-hero-label">Ofertă limitată</p>
+            <p class="promo-hero-percent" aria-hidden="true">50% OFF</p>
+            <p class="promo-hero-detail">La toate serviciile de manoperă · valabil până pe <strong>28 iunie</strong></p>
+          </aside>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="#servicii">Vezi serviciile</a>
-            <a class="btn btn-secondary" href="#contact">Hai să vorbim</a>
+            <a class="btn btn-primary" href="#contact">Hai să vorbim</a>
+            <a class="btn btn-secondary" href="#recenzii">Recenzii</a>
           </div>
         </div>
       </section>
@@ -221,10 +256,10 @@
           </p>
 
           <h3 class="subsection-title">Exemple de prețuri (manoperă)</h3>
-          <!-- Reamintire: actualizează luna/anul la prețuri când schimbi tarifele. -->
           <p class="subsection-lead">
-            Sumele sunt pentru lucru meu; piesele (SSD, ecran, baterie etc.) se adaugă la prețul de achiziție. Orientativ
-            pentru <strong>mai 2026</strong>.
+            Sumele sunt pentru lucru meu; piesele (SSD, ecran, baterie etc.) se adaugă la prețul de achiziție.
+            <span class="promo-price-note" id="promoPriceNote" hidden>Prețurile de mai jos includ reducerea de 50%.</span>
+            <span class="promo-price-regular" id="promoPriceRegular">Tarife <strong>actualizate periodic</strong>.</span>
           </p>
           <ul class="offer-price-grid">
             <li class="offer-price-card">
@@ -233,7 +268,7 @@
                 Instalare curată, drivere și actualizări. Contul tău Microsoft și datele importante le tratăm cum ai
                 stabilit înainte (inclusiv păstrare profil unde e posibil).
               </p>
-              <p class="offer-price-amount">70 RON</p>
+              <p class="offer-price-amount" data-price="70">70 RON</p>
             </li>
             <li class="offer-price-card">
               <h4 class="offer-price-name">Pachet „Start proaspăt”</h4>
@@ -241,7 +276,7 @@
                 Windows + drivere + pachet software general (browser, cititor PDF, VLC, arhivare) + curățare OS. Bună treabă
                 când vrei aparatul „ca nou” și nu vrei să pierzi o zi cu instalări una câte una.
               </p>
-              <p class="offer-price-amount">110 RON</p>
+              <p class="offer-price-amount" data-price="110">110 RON</p>
             </li>
             <li class="offer-price-card">
               <h4 class="offer-price-name">Revizie termică laptop</h4>
@@ -249,7 +284,7 @@
                 Curățare completă de praf, pastă termică nouă pe CPU și GPU. Recomandat când se încălzește tare, face
                 zgomot sau pierde performanță sub sarcină.
               </p>
-              <p class="offer-price-amount">80 RON</p>
+              <p class="offer-price-amount" data-price="80">80 RON</p>
             </li>
             <li class="offer-price-card">
               <h4 class="offer-price-name">Diagnosticare hardware</h4>
@@ -257,7 +292,7 @@
                 Verificări și teste ca să localizăm defectul. Taxa se <strong>scade din costul reparației</strong> dacă
                 continui cu lucrarea aprobată.
               </p>
-              <p class="offer-price-amount">30–50 RON</p>
+              <p class="offer-price-amount" data-price-min="30" data-price-max="50">30–50 RON</p>
             </li>
           </ul>
 
@@ -481,19 +516,68 @@
 
       <section class="section" id="recenzii" aria-labelledby="recenzii-heading">
         <div class="container">
-          <h2 class="section-title" id="recenzii-heading">Impresii și recenzii</h2>
+          <h2 class="section-title" id="recenzii-heading">Recenzii Google</h2>
           <p class="section-lead">
-            Dacă am lucrat împreună și vrei să lași o recenzie publică, o poți face pe Google — ajută și pe alții care
-            caută un service în zonă. Îți mulțumesc dacă îți faci timp.
+            Ce spun clienții care au trecut pe la CM Service — recenzii reale de pe Google Maps.
           </p>
-          <div class="reviews-actions">
-            <a
-              class="btn btn-primary"
-              href="https://share.google/tjEWP1IVVVAz4ZmRv"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Deschide profilul pe Google Maps</a>
-          </div>
+          <ul class="reviews-grid">
+            <li class="review-card">
+              <div class="review-stars" aria-label="5 stele din 5">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <blockquote class="review-quote">
+                <p>
+                  Am avut probleme cu temperatura procesorului, așa că am apelat la Cosmin și a schimbat pasta
+                  termoconductoare, aplicând-o cum trebuie folosind cantitatea necesară de pastă, nici prea multă nici
+                  prea puțină. Foarte mulțumit de servicii, din partea casei mi-a oferit o curățare a mufelor de la
+                  placa de bază.
+                </p>
+              </blockquote>
+              <footer class="review-meta">
+                <cite class="review-author">Catalin Sandu</cite>
+                <span class="review-date">acum o săptămână</span>
+              </footer>
+            </li>
+            <li class="review-card">
+              <div class="review-stars" aria-label="5 stele din 5">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <blockquote class="review-quote">
+                <p>
+                  Recomand cu încredere pentru orice instalări. Windows, Office, imprimante, etc. M-a ajutat pentru
+                  firmă și a lucrat perfect, profesionist și un preț foarte bun.
+                </p>
+              </blockquote>
+              <footer class="review-meta">
+                <cite class="review-author">Cosmina Muresan</cite>
+                <span class="review-date">acum o săptămână</span>
+              </footer>
+            </li>
+            <li class="review-card">
+              <div class="review-stars" aria-label="5 stele din 5">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <blockquote class="review-quote">
+                <p>
+                  Am avut o problemă cu PC-ul și am apelat la CM Service Dej. Cosmin a fost foarte profesionist, mi-a
+                  explicat clar care este problema și ce soluții există, fără să încerce să mă taxeze inutil. M-a bucurat
+                  faptul că evaluarea/diagnoza a fost gratuită, iar prețurile pentru reparație au fost chiar accesibile.
+                  Serviciul a fost rapid și corect, iar calculatorul merge perfect acum. Recomand cu încredere pentru
+                  oricine are nevoie de un service PC serios în Dej.
+                </p>
+              </blockquote>
+              <footer class="review-meta">
+                <cite class="review-author">Simone Marton</cite>
+                <span class="review-date">acum o lună</span>
+              </footer>
+            </li>
+          </ul>
+          <p class="reviews-cta muted small">
+            Ai lucrat cu mine și vrei să lași o impresie?
+            <a href="https://share.google/tjEWP1IVVVAz4ZmRv" target="_blank" rel="noopener noreferrer"
+              >Lasă o recenzie pe Google Maps</a
+            >.
+          </p>
         </div>
       </section>
 
@@ -570,6 +654,16 @@
                     placeholder="Descrie pe scurt problema sau întrebarea."
                   ></textarea>
                 </div>
+                <div class="contact-form-field contact-form-consent">
+                  <label class="contact-form-consent-label" for="contactConsent">
+                    <input type="checkbox" id="contactConsent" name="consent" required value="yes" />
+                    <span
+                      >Am citit
+                      <a href="politica-confidentialitate.html">politica de confidențialitate</a> și sunt de acord cu
+                      prelucrarea datelor mele pentru a răspunde solicitării.</span
+                    >
+                  </label>
+                </div>
                 <p class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite" hidden></p>
                 <button type="submit" class="btn btn-primary btn-full" id="contactFormSubmit">
                   Trimite mesajul
@@ -631,7 +725,10 @@
               <p class="footer-meta">Mare Cosmin · Dej, Cluj</p>
             </div>
           </div>
-          <p class="footer-copy">© <span id="year"></span> CM Service. Toate drepturile rezervate.</p>
+          <p class="footer-copy">
+            © <span id="year"></span> CM Service. Toate drepturile rezervate.
+            <a class="footer-legal" href="politica-confidentialitate.html">Confidențialitate</a>
+          </p>
         </div>
         <div class="footer-share" role="group" aria-label="Distribuie pagina">
           <span class="footer-share-label">Distribuie</span>

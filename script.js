@@ -1,5 +1,98 @@
 (function () {
+  var PROMO_END = new Date("2026-06-28T23:59:59+03:00");
+
+  function isPromoActive() {
+    return new Date() <= PROMO_END;
+  }
+
+  function pad2(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+
+  function updateCountdown() {
+    var diff = PROMO_END - new Date();
+    if (diff <= 0) return;
+
+    var total = Math.floor(diff / 1000);
+    var days = Math.floor(total / 86400);
+    total %= 86400;
+    var hours = Math.floor(total / 3600);
+    total %= 3600;
+    var mins = Math.floor(total / 60);
+    var secs = total % 60;
+
+    var daysEl = document.getElementById("promoCountDays");
+    var hoursEl = document.getElementById("promoCountHours");
+    var minsEl = document.getElementById("promoCountMins");
+    var secsEl = document.getElementById("promoCountSecs");
+
+    if (daysEl) daysEl.textContent = String(days);
+    if (hoursEl) hoursEl.textContent = pad2(hours);
+    if (minsEl) minsEl.textContent = pad2(mins);
+    if (secsEl) secsEl.textContent = pad2(secs);
+
+    var compactEl = document.getElementById("promoCountCompact");
+    if (compactEl) {
+      compactEl.textContent = days + "z " + pad2(hours) + "h " + pad2(mins) + "m";
+    }
+  }
+
+  function initCountdown() {
+    if (!isPromoActive()) return;
+
+    var countdown = document.getElementById("promoCountdown");
+    if (countdown) countdown.hidden = false;
+
+    var compactEl = document.getElementById("promoCountCompact");
+    if (compactEl) compactEl.hidden = false;
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  function initPromo() {
+    if (!isPromoActive()) return;
+
+    document.documentElement.classList.add("promo-active");
+
+    ["promoHero", "navPromo", "promoPriceNote"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.hidden = false;
+    });
+
+    var regularNote = document.getElementById("promoPriceRegular");
+    if (regularNote) regularNote.hidden = true;
+
+    document.querySelectorAll(".offer-price-amount").forEach(function (el) {
+      var regular = el.textContent.trim();
+      var min = el.getAttribute("data-price-min");
+      var max = el.getAttribute("data-price-max");
+      var single = el.getAttribute("data-price");
+      var sale;
+
+      if (min && max) {
+        sale = Math.round(Number(min) * 0.5) + "–" + Math.round(Number(max) * 0.5) + " RON";
+      } else if (single) {
+        sale = Math.round(Number(single) * 0.5) + " RON";
+      } else {
+        return;
+      }
+
+      el.innerHTML =
+        '<span class="offer-price-was">' +
+        regular +
+        '</span><span class="offer-price-now">' +
+        sale +
+        "</span>";
+    });
+
+    initCountdown();
+  }
+
+  initPromo();
+
   var nav = document.getElementById("nav");
+  var siteHeader = document.getElementById("siteHeader");
   var navToggle = document.getElementById("navToggle");
   var navLinks = document.getElementById("navLinks");
   var yearEl = document.getElementById("year");
@@ -22,8 +115,10 @@
   if (navToggle && nav && navLinks) {
     function setNavOpen(open) {
       nav.classList.toggle("open", open);
+      if (siteHeader) siteHeader.classList.toggle("open", open);
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
       navToggle.setAttribute("aria-label", open ? "Închide meniul" : "Meniu");
+      document.body.style.overflow = open && window.matchMedia("(max-width: 760px)").matches ? "hidden" : "";
     }
 
     navToggle.addEventListener("click", function () {
@@ -45,7 +140,7 @@
     document.addEventListener("click", function (e) {
       if (!nav.classList.contains("open")) return;
       var t = e.target;
-      if (nav.contains(t)) return;
+      if (siteHeader && siteHeader.contains(t)) return;
       setNavOpen(false);
     });
   }
@@ -99,8 +194,18 @@
       var email = String(fd.get("email") || "").trim();
       var message = String(fd.get("message") || "").trim();
       var phone = String(fd.get("phone") || "").trim();
+      var consent = fd.get("consent");
 
       if (!name || !email || !message) return;
+      if (!consent) {
+        contactFormStatus.hidden = false;
+        contactFormStatus.removeAttribute("data-state");
+        contactFormStatus.classList.remove("is-busy");
+        contactFormStatus.setAttribute("data-state", "error");
+        contactFormStatus.textContent =
+          "Bifează acordul pentru prelucrarea datelor înainte de trimitere.";
+        return;
+      }
 
       var payload = {
         access_key: accessKey,
