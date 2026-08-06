@@ -1308,6 +1308,16 @@ main {
   color: var(--link);
 }
 
+.footer-related {
+  opacity: 0.55;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.footer-related:hover {
+  opacity: 1;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
