@@ -168,37 +168,6 @@
     <a class="skip-link" href="#main">Sari la conținut</a>
 
     <header class="site-header" id="siteHeader">
-      <div class="nav-promo" id="navPromo" hidden aria-label="Ofertă promotională">
-        <div class="nav-promo-inner">
-          <p class="nav-promo-offer">
-            <span class="nav-promo-percent" aria-hidden="true">-50%</span>
-            <span class="nav-promo-offer-text">Reducere la manoperă · până pe 28 iunie</span>
-            <span class="nav-promo-offer-short">la manoperă</span>
-            <span class="nav-promo-compact" id="promoCountCompact" hidden></span>
-          </p>
-          <div class="nav-promo-countdown promo-countdown" id="promoCountdown" hidden>
-            <span class="promo-countdown-label">Se termină în</span>
-            <div class="promo-countdown-grid" id="promoCountdownTimer" role="timer" aria-live="polite">
-              <div class="promo-countdown-cell">
-                <span class="promo-countdown-num" id="promoCountDays">0</span>
-                <span class="promo-countdown-unit">zile</span>
-              </div>
-              <div class="promo-countdown-cell">
-                <span class="promo-countdown-num" id="promoCountHours">0</span>
-                <span class="promo-countdown-unit">ore</span>
-              </div>
-              <div class="promo-countdown-cell">
-                <span class="promo-countdown-num" id="promoCountMins">0</span>
-                <span class="promo-countdown-unit">min</span>
-              </div>
-              <div class="promo-countdown-cell">
-                <span class="promo-countdown-num" id="promoCountSecs">0</span>
-                <span class="promo-countdown-unit">sec</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <nav class="nav" id="nav" aria-label="Navigare principală">
         <div class="nav-inner">
           <a href="#hero" class="nav-logo" aria-label="CM Service, începutul paginii">
@@ -235,11 +204,6 @@
             Îți spun direct ce merită reparat, cât costă și cât durează — fără jargon, fără presiune. PC, laptop și
             consolă, în Dej și împrejurimi.
           </p>
-          <aside class="promo-hero" id="promoHero" hidden aria-label="Ofertă promotională">
-            <p class="promo-hero-label">Ofertă limitată</p>
-            <p class="promo-hero-percent" aria-hidden="true">50% OFF</p>
-            <p class="promo-hero-detail">La toate serviciile de manoperă · valabil până pe <strong>28 iunie</strong></p>
-          </aside>
           <div class="hero-ctas">
             <a class="btn btn-primary" href="#contact">Hai să vorbim</a>
             <a class="btn btn-secondary" href="#recenzii">Recenzii</a>
@@ -255,44 +219,60 @@
             Dacă nu găsești exact situația ta, scrii sau suni și vedem.
           </p>
 
-          <h3 class="subsection-title">Exemple de prețuri (manoperă)</h3>
+          <h3 class="subsection-title">Ce cer cel mai des</h3>
           <p class="subsection-lead">
-            Sumele sunt pentru lucru meu; piesele (SSD, ecran, baterie etc.) se adaugă la prețul de achiziție.
-            <span class="promo-price-note" id="promoPriceNote" hidden>Prețurile de mai jos includ reducerea de 50%.</span>
-            <span class="promo-price-regular" id="promoPriceRegular">Tarife <strong>actualizate periodic</strong>.</span>
+            La instalare, curățare și upgrade SSD, prețul e manopera. SSD-ul și piesele se adaugă separat.
+            La reparații, diagnosticul e gratuit.
           </p>
           <ul class="offer-price-grid">
             <li class="offer-price-card">
-              <h4 class="offer-price-name">Instalare Windows 10 / 11</h4>
-              <p class="offer-price-detail">
-                Instalare curată, drivere și actualizări. Contul tău Microsoft și datele importante le tratăm cum ai
-                stabilit înainte (inclusiv păstrare profil unde e posibil).
+              <h4 class="offer-price-name">Instalare Windows + Office</h4>
+              <p class="offer-price-for">
+                Când vrei calculatorul gata de lucru: Windows curat și Office instalat, fără o după-amiază pierdută.
               </p>
-              <p class="offer-price-amount" data-price="70">70 RON</p>
+              <ul class="offer-price-includes">
+                <li>Windows 10 sau 11, instalare curată</li>
+                <li>Office instalat și activat</li>
+                <li>Drivere, actualizări și fișierele importante, cum stabilim înainte</li>
+              </ul>
+              <p class="offer-price-amount">90 RON</p>
             </li>
             <li class="offer-price-card">
-              <h4 class="offer-price-name">Pachet „Start proaspăt”</h4>
-              <p class="offer-price-detail">
-                Windows + drivere + pachet software general (browser, cititor PDF, VLC, arhivare) + curățare OS. Bună treabă
-                când vrei aparatul „ca nou” și nu vrei să pierzi o zi cu instalări una câte una.
+              <h4 class="offer-price-name">Curățare + schimbare pastă termică</h4>
+              <p class="offer-price-for">
+                Când ventilatorul urlă, se încinge, se închide singur sau pierde din viteză — laptop, desktop sau consolă.
               </p>
-              <p class="offer-price-amount" data-price="110">110 RON</p>
+              <ul class="offer-price-includes">
+                <li>Curățare completă de praf</li>
+                <li>Pastă termică nouă pe procesor și, unde există, pe placa video</li>
+                <li>Verificare temperaturi după ce îl închid la loc</li>
+              </ul>
+              <p class="offer-price-amount">100 RON</p>
             </li>
             <li class="offer-price-card">
-              <h4 class="offer-price-name">Revizie termică laptop</h4>
-              <p class="offer-price-detail">
-                Curățare completă de praf, pastă termică nouă pe CPU și GPU. Recomandat când se încălzește tare, face
-                zgomot sau pierde performanță sub sarcină.
+              <h4 class="offer-price-name">Upgrade SSD</h4>
+              <p class="offer-price-for">
+                Când calculatorul pornește în minute, se blochează la programe sau încă are disc vechi.
               </p>
-              <p class="offer-price-amount" data-price="80">80 RON</p>
+              <ul class="offer-price-includes">
+                <li>Mut Windows-ul și fișierele pe SSD</li>
+                <li>Montaj în laptop, PC sau consolă, unde modelul permite</li>
+                <li>Verificare că pornește corect</li>
+                <li>SSD-ul nu intră în preț</li>
+              </ul>
+              <p class="offer-price-amount">100 RON</p>
             </li>
             <li class="offer-price-card">
-              <h4 class="offer-price-name">Diagnosticare hardware</h4>
-              <p class="offer-price-detail">
-                Verificări și teste ca să localizăm defectul. Taxa se <strong>scade din costul reparației</strong> dacă
-                continui cu lucrarea aprobată.
+              <h4 class="offer-price-name">Reparații laptop, PC, consolă</h4>
+              <p class="offer-price-for">
+                Când nu pornește, nu are imagine, face zgomote sau nu știi dacă merită băgați banii.
               </p>
-              <p class="offer-price-amount" data-price-min="30" data-price-max="50">30–50 RON</p>
+              <ul class="offer-price-includes">
+                <li>Laptop, desktop sau consolă</li>
+                <li>Diagnostic gratuit, înainte de orice cost</li>
+                <li>Îți spun ce e stricat, ce merită schimbat și cât costă</li>
+              </ul>
+              <p class="offer-price-amount">Diagnostic gratuit</p>
             </li>
           </ul>
 

@@ -18,22 +18,11 @@
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "Source Sans 3", system-ui, -apple-system, sans-serif;
-  --font-promo: "Bebas Neue", "Arial Narrow", sans-serif;
   --radius: 10px;
   --radius-lg: 12px;
   --nav-h: 64px;
   --header-h: var(--nav-h);
   --container: 960px;
-}
-
-.promo-active {
-  --header-h: calc(var(--nav-h) + 48px);
-}
-
-@media (max-width: 640px) {
-  .promo-active {
-    --header-h: calc(var(--nav-h) + 40px);
-  }
 }
 
 *,
@@ -133,135 +122,6 @@ a:hover {
   right: 0;
   z-index: 100;
   background: #120d0a;
-}
-
-.nav-promo {
-  border-bottom: 1px solid color-mix(in srgb, var(--amber) 28%, var(--border));
-  background: color-mix(in srgb, var(--amber) 10%, #120d0a);
-}
-
-.nav-promo-inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 8px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px 20px;
-}
-
-.nav-promo-offer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.35;
-}
-
-.nav-promo-percent {
-  font-family: var(--font-promo);
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.03em;
-  color: var(--sand);
-}
-
-.nav-promo-countdown {
-  display: flex;
-  align-items: center;
-  gap: 10px 12px;
-  flex-shrink: 0;
-}
-
-.nav-promo-countdown .promo-countdown-label {
-  margin: 0;
-  white-space: nowrap;
-}
-
-.nav-promo-countdown .promo-countdown-grid {
-  gap: 6px 8px;
-}
-
-.nav-promo-countdown .promo-countdown-cell {
-  min-width: 2.5rem;
-  padding: 4px 8px;
-  background: var(--card);
-}
-
-.nav-promo-countdown .promo-countdown-num {
-  font-size: 1.2rem;
-}
-
-.nav-promo-countdown .promo-countdown-unit {
-  font-size: 0.62rem;
-  margin-top: 2px;
-}
-
-.nav-promo-compact {
-  display: none;
-}
-
-.nav-promo-offer-short {
-  display: none;
-}
-
-@media (max-width: 760px) {
-  .nav-promo-inner {
-    justify-content: center;
-    padding: 7px 16px;
-  }
-
-  .nav-promo-offer {
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 8px;
-    font-size: 0.8125rem;
-  }
-
-  .nav-promo-offer-text {
-    display: none;
-  }
-
-  .nav-promo-offer-short {
-    display: inline;
-  }
-
-  .nav-promo-compact {
-    display: inline;
-    font-family: var(--font-promo);
-    font-size: 1.05rem;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0.05em;
-    color: var(--sand);
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-
-  .nav-promo-compact::before {
-    content: "·";
-    margin-right: 8px;
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--text-muted);
-  }
-
-  .nav-promo-countdown {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .nav-promo-inner {
-    flex-direction: row;
-    align-items: center;
-    gap: 0;
-  }
 }
 
 .nav {
@@ -582,23 +442,6 @@ a:hover {
     max-width: 44rem;
   }
 
-  .promo-hero {
-    max-width: 36rem;
-    margin-bottom: 40px;
-  }
-
-  .promo-hero-percent {
-    font-size: clamp(5.5rem, 10vw, 8.5rem);
-  }
-
-  .nav-promo-percent {
-    font-size: 1.75rem;
-  }
-
-  .nav-promo-countdown .promo-countdown-num {
-    font-size: 1.35rem;
-  }
-
   .hero-ctas {
     gap: 20px;
   }
@@ -743,6 +586,8 @@ main {
 }
 
 .offer-price-card {
+  display: flex;
+  flex-direction: column;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -757,141 +602,31 @@ main {
   margin: 0 0 8px;
 }
 
-.offer-price-detail {
-  font-size: 0.88rem;
+.offer-price-for {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.offer-price-includes {
+  margin: 0 0 14px;
+  padding: 0 0 0 1.15rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
-  line-height: 1.55;
-  margin: 0 0 12px;
+  line-height: 1.45;
+}
+
+.offer-price-includes li + li {
+  margin-top: 4px;
 }
 
 .offer-price-amount {
   font-size: 1.05rem;
   font-weight: 700;
+  line-height: 1.3;
   color: var(--amber-bright);
-  margin: 0;
-}
-
-.promo-active .offer-price-card {
-  border-color: color-mix(in srgb, var(--amber) 35%, var(--border));
-}
-
-.promo-active .offer-price-amount {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 8px 12px;
-}
-
-.offer-price-was {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-decoration: line-through;
-  text-decoration-color: color-mix(in srgb, var(--text-muted) 70%, transparent);
-}
-
-.offer-price-now {
-  font-family: var(--font-promo);
-  font-size: 1.65rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  color: var(--amber-bright);
-  line-height: 1;
-}
-
-/* --- Promo --- */
-.promo-hero {
-  margin: 0 0 36px;
-  padding: 20px 0 0;
-  border-top: 1px solid var(--border);
-  max-width: 28rem;
-}
-
-.promo-hero-label {
-  margin: 0 0 4px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--amber-bright);
-}
-
-.promo-hero-percent {
-  margin: 0;
-  font-family: var(--font-promo);
-  font-size: clamp(4.5rem, 14vw, 7.5rem);
-  font-weight: 400;
-  line-height: 0.88;
-  letter-spacing: 0.02em;
-  color: var(--sand);
-}
-
-.promo-hero-detail {
-  margin: 8px 0 0;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.promo-hero-detail strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.promo-countdown {
-  margin: 0;
-}
-
-.promo-countdown-label {
-  margin: 0 0 10px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.promo-countdown-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-}
-
-.promo-countdown-cell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 3.5rem;
-  padding: 8px 12px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-.promo-countdown-num {
-  font-family: var(--font-promo);
-  font-size: 1.75rem;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  color: var(--sand);
-  font-variant-numeric: tabular-nums;
-}
-
-.promo-countdown-unit {
-  margin-top: 4px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.promo-price-note {
-  display: block;
-  margin-top: 0.35rem;
-  color: var(--amber-bright);
-  font-weight: 600;
+  margin: auto 0 0;
 }
 
 /* --- Despre --- */
@@ -1805,9 +1540,14 @@ a.footer-share-btn:focus-visible {
     font-size: 1.125rem;
   }
 
-  .offer-price-detail {
+  .offer-price-for {
     font-size: 1.02rem;
-    line-height: 1.6;
+    line-height: 1.55;
+  }
+
+  .offer-price-includes {
+    font-size: 0.98rem;
+    line-height: 1.5;
   }
 
   .offer-price-amount {
